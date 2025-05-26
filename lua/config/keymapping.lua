@@ -1,11 +1,40 @@
+opts = { noremap = true, silent = true }
 
-vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true })
+set_keymap = vim.keymap.set
 
-vim.keymap.set({"n", "v"}, "<Leader>y", '"+y', { noremap = true, silent = true })
+set_keymap("i", "jk", "<ESC>", opts)
 
-vim.keymap.set({"n"}, "gd", ':lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+set_keymap({ "n", "v" }, "<Leader>y", '"+y', opts)
 
-vim.keymap.set({"n"}, "<Leader>df", ':lua MiniFiles.open()<CR>', { noremap = true, silent = true })
+set_keymap({ "n" }, "gd", ':lua vim.lsp.buf.definition()<CR>', opts)
 
-vim.keymap.set("t", "<Esc>", '<C-\\><C-n>', {noremap=true, silent=true})
+set_keymap({ "n" }, "<Leader>ft", ':lua MiniFiles.open()<CR>', opts)
+
+-- escape terminal
+set_keymap("t", "<Esc>", '<C-\\><C-n>', opts)
+
+-- Don't paste over clipboard
+set_keymap("v", "p", '"_dp', opts)
+
+-- easier indent controls
+set_keymap("v", "<", "<gv", opts)
+set_keymap("v", ">", ">gv", opts)
+
+-- easier splits
+set_keymap({ "n" }, "<Leader>vs", ':vsplit<CR>', opts)
+set_keymap({ "n" }, "<Leader>hs", ':split<CR>', opts)
+
+
+-- LSP options
+set_keymap("n", "K", vim.lsp.buf.hover, opts)
+set_keymap("n", "<leader>lR", vim.lsp.buf.rename, opts)
+set_keymap({ "n", "x" }, "<leader>la", vim.lsp.buf.code_action, opts)
+set_keymap("n", "<leader>lf", vim.lsp.buf.format, opts)
+
+-- Search
+set_keymap("n", "<Leader>fg", ":Pick grep_live<CR>", opts)
+set_keymap("n", "<Leader>ff", ":Pick files<CR>", opts)
+set_keymap("n", "<Leader>fb", ":Pick buffers<CR>", opts)
+set_keymap("n", "<Leader>fp", ":Pick visit_paths<CR>", opts)
+
 
