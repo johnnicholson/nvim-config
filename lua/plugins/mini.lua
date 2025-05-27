@@ -11,9 +11,18 @@ return {
     { 'echasnovski/mini.pick',       version = "*", opts = {} },
     { 'echasnovski/mini.statusline', version = "*", opts = {} },
     { 'echasnovski/mini.icons',      version = "*", opts = {} },
-    { 'echasnovski/mini.pick',       version = "*", opts = {} },
-    { 'echasnovski/mini.extra',      version = "*", opts = {} },
-    { 'echasnovski/mini.visits',      version = "*", opts = {} },
+    {
+        'echasnovski/mini.pick',
+        version = "*",
+        opts = {
+            mappings = {
+                choose_in_vsplit = '<C-s>',
+                choose_in_split = '<C-v>',
+            }
+        }
+    },
+    { 'echasnovski/mini.extra',  version = "*", opts = {} },
+    { 'echasnovski/mini.visits', version = "*", opts = {} },
 
     {
         'echasnovski/mini.basics',

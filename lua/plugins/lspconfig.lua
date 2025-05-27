@@ -79,13 +79,8 @@ return {
                         },
                     },
                 },
-                marksman = {},
                 pyright = {},
                 templ = {},
-                terraformls = {
-                    filetypes = { "terraform", "terraform-vars", "tf" },
-                },
-                tinymist = {},
                 ts_ls = {},
                 yamlls = {
                     capabilities = {
@@ -110,8 +105,6 @@ return {
                                 kubernetes = "*.yaml",
                                 ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
                                 ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-                                ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] =
-                                "azure-pipelines*.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks"] =
                                 "roles/tasks/*.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] =
@@ -119,7 +112,6 @@ return {
                                 ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
                                 ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
                                 ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
-                                ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
                                 ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] =
                                 "*gitlab-ci*.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] =
@@ -138,7 +130,6 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
-            print(capabilities)
             for server, server_opts in pairs(opts.servers) do
                 server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
                 lspconfig[server].setup(server_opts)
