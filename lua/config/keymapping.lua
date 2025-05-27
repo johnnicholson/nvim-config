@@ -33,13 +33,19 @@ set_keymap("n", "<leader>lf", vim.lsp.buf.format, opts)
 
 -- Search
 set_keymap("n", "<Leader>fg", ":Pick grep_live<CR>", opts)
-set_keymap("n", "<Leader>ff", ":Pick files<CR>", opts)
-set_keymap("n", "<Leader>fb", ":Pick buffers<CR>", opts)
 set_keymap("n", "<Leader>fp", ":Pick visit_paths<CR>", opts)
 
-vim.diagnostic.config({virtual_text=true, virtual_lines=false})
+set_keymap("n", "<Leader>ff", ":Pick files<CR>", opts)
+set_keymap("n", "<C-p>", ":Pick files<CR>", opts)
+
+set_keymap("n", "<Leader>fb", ":Pick buffers<CR>", opts)
+set_keymap("n", "<C-P>", ":Pick buffers<CR>", opts)
+
 
 vim.g.diag_visible = true
+vim.g.diag_lines_visible = false
+vim.diagnostic.config({ virtual_text = vim.g.diag_visible, virtual_lines = vim.g.diag_lines_visible })
+
 set_keymap(
     "n",
     "<Leader>th",
@@ -50,7 +56,6 @@ set_keymap(
     opts
 )
 
-vim.g.diag_lines_visible = false
 set_keymap(
     "n",
     "<Leader>tl",
