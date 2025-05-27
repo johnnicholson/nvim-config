@@ -14,7 +14,7 @@ set_keymap({ "n" }, "<Leader>ft", ':lua MiniFiles.open()<CR>', opts)
 set_keymap("t", "<Esc>", '<C-\\><C-n>', opts)
 
 -- Don't paste over clipboard
-set_keymap("v", "p", '"_dp', opts)
+set_keymap("v", "p", 'P', opts)
 
 -- easier indent controls
 set_keymap("v", "<", "<gv", opts)
