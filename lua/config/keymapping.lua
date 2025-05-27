@@ -37,4 +37,26 @@ set_keymap("n", "<Leader>ff", ":Pick files<CR>", opts)
 set_keymap("n", "<Leader>fb", ":Pick buffers<CR>", opts)
 set_keymap("n", "<Leader>fp", ":Pick visit_paths<CR>", opts)
 
+vim.diagnostic.config({virtual_text=true, virtual_lines=false})
 
+vim.g.diag_visible = true
+set_keymap(
+    "n",
+    "<Leader>th",
+    function()
+        vim.g.diag_visible = not vim.g.diag_visible
+        vim.diagnostic.config({ virtual_text = vim.g.diag_visible })
+    end,
+    opts
+)
+
+vim.g.diag_lines_visible = false
+set_keymap(
+    "n",
+    "<Leader>tl",
+    function()
+        vim.g.diag_lines_visible = not vim.g.diag_lines_visible
+        vim.diagnostic.config({ virtual_lines = vim.g.diag_lines_visible })
+    end,
+    opts
+)

@@ -3,6 +3,9 @@ return {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
+            inlay_hints = {
+                enabled = true
+            },
             servers = {
                 bashls = {},
                 dockerls = {},
