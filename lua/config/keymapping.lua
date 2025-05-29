@@ -42,6 +42,13 @@ set_keymap("n", "<Leader>fb", ":Pick buffers<CR>", opts)
 set_keymap("n", "<C-P>", ":Pick buffers<CR>", opts)
 
 
+local imap_expr = function(lhs, rhs)
+vim.keymap.set('i', lhs, rhs, { expr = true })
+end
+imap_expr('<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
+imap_expr('<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
+
+
 vim.g.diag_visible = true
 vim.g.diag_lines_visible = false
 vim.diagnostic.config({ virtual_text = vim.g.diag_visible, virtual_lines = vim.g.diag_lines_visible })

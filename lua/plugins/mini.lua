@@ -4,6 +4,7 @@ return {
     { 'echasnovski/mini.surround',   version = "*", opts = {} },
     { 'echasnovski/mini.ai',         version = "*", opts = {} },
     { 'echasnovski/mini.completion', version = "*", opts = {} },
+    { 'echasnovski/mini.snippets', version = "*", opts = {} },
     { 'echasnovski/mini.operators',  version = "*", opts = {} },
     -- { 'echasnovski/mini.bracketed', version = "*", opts = {}},
     -- { 'echasnovski/mini.clue', version = "*", opts = {}},
